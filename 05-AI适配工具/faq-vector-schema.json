@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TS BLE FAQ Vector Doc",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "chip", "category", "path", "content"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique document id (e.g. filename without extension)."
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-friendly title."
+    },
+    "chip": {
+      "type": "string",
+      "enum": ["TS8001", "TS8010", "TS8001/TS8010"],
+      "description": "Which chip(s) this doc applies to."
+    },
+    "category": {
+      "type": "string",
+      "enum": ["芯片基础配置", "配对与连接", "协议与数据交互", "问题排查", "AI适配工具"],
+      "description": "Top-level FAQ category."
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional tags for retrieval."
+    },
+    "path": {
+      "type": "string",
+      "description": "Repo-relative path to the markdown file."
+    },
+    "content": {
+      "type": "string",
+      "description": "Full markdown content used for embedding."
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional metadata (sdkVersion, fwVersion, updatedAt, etc.)."
+    }
+  }
+}
